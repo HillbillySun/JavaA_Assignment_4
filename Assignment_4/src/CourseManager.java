@@ -204,14 +204,11 @@ public class CourseManager {
 
     public ArrayList<String> getEnrolledCoursesWithCredits(Student student) {
         ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < student.getEnrollCourses().size(); i++) {
-            for (int j = 0; j < courses.size(); j++) {
-                if (student.getEnrollCourses().get(i).getCourseID().equals(courses.get(j).getCourseID())) {
-                    for (int k = 0; k < courses.get(j).getEnrollStudent().size(); k++) {
-                        if (courses.get(j).getEnrollStudent().get(k).getStudentID().equals(student.getStudentID())) {
-                            list.add(String.format(student.getEnrollCourses().get(i).getCourseID() + ": " + courses.get(j).getCredits().get(k)));
-                        }
-                    }
+        for (int i = 0; i < courses.size(); i++) {
+            for (int j = 0; j < courses.get(i).getEnrollStudent().size(); j++) {
+                if (courses.get(i).getEnrollStudent().get(j).getStudentID().equals(student.getStudentID()))
+                {
+                    list.add(String.format(courses.get(i).getCourseID()+": "+courses.get(i).getCredits().get(j)));
                 }
             }
         }
