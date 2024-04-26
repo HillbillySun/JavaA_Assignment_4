@@ -227,13 +227,13 @@ public class CourseManager {
      */
 
     public static void LowDown(ArrayList<Integer> arrayList) {
-        int n = arrayList.size();
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arrayList.get(j) < arrayList.get(j + 1)) {
-                    int temp = arrayList.get(j);
-                    arrayList.set(j, arrayList.get(j + 1));
-                    arrayList.set(j + 1, temp);
+        for (int i = 0; i < arrayList.size()-1; i++) {
+            for (int j = i+1; j < arrayList.size(); j++) {
+                if (arrayList.get(j)> arrayList.get(i))
+                {
+                    int temp=arrayList.get(i);
+                    arrayList.set(i, arrayList.get(j));
+                    arrayList.set(j,temp);
                 }
             }
         }
